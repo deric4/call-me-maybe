@@ -3,3 +3,5 @@ uvicorn
 twilio
 uvicorn
 pydantic[dotenv]
+pytest
+allure-pytest

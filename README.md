@@ -132,6 +132,7 @@ Whats a unit?
 <p>
   <img src="docs/sequence.png">
 </p>
+
 ## Pytest
 
 IMHO the best python testing framework out there right now.
