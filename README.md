@@ -129,25 +129,9 @@ Whats a unit?
 
   Demo Time. What are the units in the demo app provided?
 
-```mermaid
-sequenceDiagram
-  participant me as User
-  participant app as Call Me Maybe
-  participant twilio as Twilio
-  participant office as Unemployment Office
-
-  me ->>app: Start App
-  loop every x seconds
-    app->>twilio: start conference call
-    twilio->>office: call the office
-    alt line busy
-      app->>app: sleep
-    else call me
-      twilio->>me: dial me in
-    end
-  end
-```
-
+<p>
+  <img src="docs/sequence.png">
+</p>
 ## Pytest
 
 IMHO the best python testing framework out there right now.
