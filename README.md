@@ -62,7 +62,16 @@ You'll hear following words thrown around quite a bit when talking about testing
 
 For example, a unit test might mean something slightly different between developers who use live in different ecosystems (Python vs Java). What about between Data Scientists, SysAdmins, or Network Engineers.
 
-It can feel a little bit like Calvinball at times.
+* This may vary depending on what you're working on:
+  - jupyter notebook
+  - web application
+  - cli tool
+  - serverless function
+  - library/package
+* Code Structure
+* Scope
+
+It can feel a little bit like Calvinball at times :upside_down_face:.
 
 <p>
   <img src="http://isaacbotkin.com/wp-content/uploads/2016/08/CalvinballOrganized.jpg">
@@ -70,37 +79,96 @@ It can feel a little bit like Calvinball at times.
 
 ### Testing Pyramid
 
-### For fun and profit
+One of the better talks I've come across with breaking down defintions not only across a language but across an Application's entire development lifecycle.
 
-* Personal Development
+One of the best talks about testing (infrastructure) but principles can be applied generically.
 
-* Business 
+[Automated Testing for Terraform, Docker, Packer, Kuberernetes, More](https://www.infoq.com/presentations/automated-testing-terraform-docker-packer/)
 
 
-### Types of Testing
+## Static Analyis
 
-* unit
-* functional
-* integration
-* end-to-end
-* perfomance
-* regression
-* ...
-* ...
-* ...
-* ...
-* ...
+> "Look at my code, don't run it, tell me if there's a bug or if there's some sort of issue."
 
-### Chalenges
+### Linters
 
-Figuring out what is you need to test.
+* Flake8
+* Pylint
+* Pyflakes
 
-<!-- TEST ALL THE THINGS -->
-* This may vary depending on what you're working:
-  - jupyter notebook
-  - web application
-  - cli tool
-  - serverless function
-  - library/package
-* Code Structure
-* Scope 
+### Formatters
+* Black :star:
+* isort
+
+### Types
+* MyPy
+* Pydantic
+* Marshmallow 
+
+### Code Coverage
+* Coverage.py
+
+### Security
+* Bandit
+
+
+### Git
+* pre-commit
+* gitlint
+
+
+## Unit Testing
+
+Whats a unit?
+<p>
+  <img src="https://cdn.vox-cdn.com/thumbor/BQ-h-ALgc_6EFCWwPEV0Y_z6dSs=/0x0:1200x870/920x613/filters:focal(516x282:708x474)/cdn.vox-cdn.com/uploads/chorus_image/image/59535207/absolute_unit_sheep.0.jpg">
+
+</p>
+
+  it depends...
+
+  Demo Time. What are the units in the demo app provided?
+
+```mermaid
+sequenceDiagram
+  participant me as User
+  participant app as Call Me Maybe
+  participant twilio as Twilio
+  participant office as Unemployment Office
+
+  me ->>app: Start App
+  loop every x seconds
+    app->>twilio: start conference call
+    twilio->>office: call the office
+    alt line busy
+      app->>app: sleep
+    else call me
+      twilio->>me: dial me in
+    end
+  end
+```
+
+## Pytest
+
+IMHO the best python testing framework out there right now.
+
+
+
+### Lab
+
+Install pytest
+
+```bash
+$ python3 -m pip install --upgrade pip
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+
+# windows script path?
+```
+
+
+Verify
+
+```bash
+$ pytest -v
+```
